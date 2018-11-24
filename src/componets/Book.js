@@ -1,9 +1,5 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-
-import * as BooksAPI from '../BooksAPI';
-
 class Book extends React.Component {
 
   render() {
@@ -12,7 +8,7 @@ class Book extends React.Component {
       <li>
         <div className="book">
           <div className="book-top">
-            <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: "url($'{this.props.book.imageLinks && this.props.book.imageLinks.thumbnail}')"}}></div>
+            <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${this.props.book.imageLinks && this.props.book.imageLinks.thumbnail})`}}></div>
             <div className="book-shelf-changer">
               <select value={this.props.book.shelf || "none"} onChange={(e) => {this.props.updateBook(this.props.book, e.target.value) }}>
                 <option value="move">Move to...</option>

@@ -2,7 +2,6 @@ import React from 'react';
 
 import Shelf from '../Shelf';
 
-import Book from '../Book';
 
 import * as BooksAPI from '../../BooksAPI';
 
@@ -26,9 +25,10 @@ class MainPage extends React.Component {
       BooksAPI.update(book, shelf)
       .then(resp => {
         book.shelf = shelf;
-        this.setState(state => {
+        this.setState(state => ({
           books: state.books.filter(b => b.id !== book.id).concat([book])
-        } );
+        }));
+        // Fix from Udacity reviewer
     });
   }
 
